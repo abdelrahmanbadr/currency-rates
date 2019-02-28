@@ -1,9 +1,9 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Core\Contracts;
+namespace Abdelrahman_badr\CurrencyRates\Core\Contracts;
 /**
  * Interface WriterInterFace
- * @package Abdelrahman_badr\CurrencyRate\Core\Contracts
+ * @package Abdelrahman_badr\CurrencyRates\Core\Contracts
  */
 
 interface WriterInterFace

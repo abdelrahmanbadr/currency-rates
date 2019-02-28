@@ -1,12 +1,12 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Providers;
+namespace Abdelrahman_badr\CurrencyRates\Providers;
 use DateTime;
 
 
 /**
  * Class ExchangeRatesApiProvider
- * @package Abdelrahman_badr\CurrencyRate\Providers
+ * @package Abdelrahman_badr\CurrencyRates\Providers
  */
 class ExchangeRatesApiProvider extends AbstractProvider
 {

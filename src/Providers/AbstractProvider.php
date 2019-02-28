@@ -1,12 +1,12 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Providers;
+namespace Abdelrahman_badr\CurrencyRates\Providers;
 
-use Abdelrahman_badr\CurrencyRate\Core\Contracts\CurrencyProviderInterface;
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\CurrencyProviderInterface;
 
 /**
  * Class AbstractProvider
- * @package Abdelrahman_badr\CurrencyRate\Providers
+ * @package Abdelrahman_badr\CurrencyRates\Providers
  */
 abstract class AbstractProvider implements CurrencyProviderInterface
 {

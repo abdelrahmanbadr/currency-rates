@@ -1,8 +1,8 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Core\Contracts;
+namespace Abdelrahman_badr\CurrencyRates\Core\Contracts;
 
-use Abdelrahman_badr\CurrencyRate\Models\Currency;
+use Abdelrahman_badr\CurrencyRates\Models\Currency;
 use DateTime;
 
 interface CurrencyServiceInterface

@@ -1,13 +1,13 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Core\Contracts;
+namespace Abdelrahman_badr\CurrencyRates\Core\Contracts;
 
-use Abdelrahman_badr\CurrencyRate\Models\Currency;
+use Abdelrahman_badr\CurrencyRates\Models\Currency;
 use stdClass;
 
 /**
  * Interface CurrencyMapperInterface
- * @package Abdelrahman_badr\CurrencyRate\Core\Contracts
+ * @package Abdelrahman_badr\CurrencyRates\Core\Contracts
  */
 interface CurrencyMapperInterface
 {

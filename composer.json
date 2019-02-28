@@ -28,7 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Abdelrahman_badr\\currencyRate\\": "src"
+      "Abdelrahman_badr\\CurrencyRates\\": "src/"
     }
   },
   "autoload-dev": {
@@ -39,7 +39,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Abdelrahman_badr\\currencyRate\\Core\\CurrencyServiceProvider"
+        "Abdelrahman_badr\\CurrencyRates\\Core\\CurrencyServiceProvider"
       ]
     }
   }

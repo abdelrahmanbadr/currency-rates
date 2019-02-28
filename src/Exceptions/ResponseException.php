@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Abdelrahman_badr\CurrencyRate\Exceptions;
+namespace Abdelrahman_badr\CurrencyRates\Exceptions;
 
-use Abdelrahman_badr\CurrencyRate\Core\Constants\ErrorMessage;
+use Abdelrahman_badr\CurrencyRates\Core\Constants\ErrorMessage;
 use Exception;
 
 /**
  * Class ResponseException
- * @package Abdelrahman_badr\CurrencyRate\Exceptions
+ * @package Abdelrahman_badr\CurrencyRates\Exceptions
  */
 class ResponseException extends Exception
 {

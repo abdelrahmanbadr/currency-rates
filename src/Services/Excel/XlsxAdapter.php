@@ -1,16 +1,16 @@
 <?php
 
 
-namespace Abdelrahman_badr\CurrencyRate\Services\Excel;
+namespace Abdelrahman_badr\CurrencyRates\Services\Excel;
 
 
-use Abdelrahman_badr\CurrencyRate\Core\Contracts\WriterInterFace;
-use Abdelrahman_badr\CurrencyRate\Core\Contracts\ExcelSheetAdapterInterface;
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\WriterInterFace;
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\ExcelSheetAdapterInterface;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 /**
  * Class XlsxAdapter
- * @package Abdelrahman_badr\CurrencyRate\Services\Excel
+ * @package Abdelrahman_badr\CurrencyRates\Services\Excel
  */
 class XlsxAdapter implements WriterInterFace
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Core\Constants;
+namespace Abdelrahman_badr\CurrencyRates\Core\Constants;
 
 /**
  * Class Constant
- * @package Abdelrahman_badr\CurrencyRate\Core\Constants
+ * @package Abdelrahman_badr\CurrencyRates\Core\Constants
  */
 class Constant
 {

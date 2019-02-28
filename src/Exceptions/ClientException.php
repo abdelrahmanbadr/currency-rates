@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Abdelrahman_badr\CurrencyRate\Exceptions;
+namespace Abdelrahman_badr\CurrencyRates\Exceptions;
 
 use Exception;
 
 /**
  * Class ClientException
- * @package Abdelrahman_badr\CurrencyRate\Exceptions
+ * @package Abdelrahman_badr\CurrencyRates\Exceptions
  */
 class ClientException extends Exception
 {

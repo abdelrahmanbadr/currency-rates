@@ -1,6 +1,6 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Core;
+namespace Abdelrahman_badr\CurrencyRates\Core;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -23,10 +23,10 @@ class CurrencyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('CurrencyRate\Core\Contracts\CurrencyMapperInterface', 'CurrencyRate\Mappers\CurrencyMapper');
-        $this->app->singleton('CurrencyRate\Core\Contracts\CurrencyProviderInterface', 'CurrencyRate\Providers\ExchangeRatesApiProvider');
-        $this->app->singleton('CurrencyRate\Core\Contracts\CurrencyServiceInterface', 'CurrencyRate\Services\CurrencyService');
-        $this->app->singleton('CurrencyRate\Core\Contracts\HttpAdapterInterface', 'CurrencyRate\Services\Http\GuzzleHttpAdapter');
+        $this->app->singleton('CurrencyRates\Core\Contracts\CurrencyMapperInterface', 'CurrencyRates\Mappers\CurrencyMapper');
+        $this->app->singleton('CurrencyRates\Core\Contracts\CurrencyProviderInterface', 'CurrencyRates\Providers\ExchangeRatesApiProvider');
+        $this->app->singleton('CurrencyRates\Core\Contracts\CurrencyServiceInterface', 'CurrencyRates\Services\CurrencyService');
+        $this->app->singleton('CurrencyRates\Core\Contracts\HttpAdapterInterface', 'CurrencyRates\Services\Http\GuzzleHttpAdapter');
 
     }
 

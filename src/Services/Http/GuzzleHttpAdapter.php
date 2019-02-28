@@ -1,12 +1,12 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Services\Http;
+namespace Abdelrahman_badr\CurrencyRates\Services\Http;
 
-use Abdelrahman_badr\CurrencyRate\Exceptions\ResponseException;
+use Abdelrahman_badr\CurrencyRates\Exceptions\ResponseException;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use Abdelrahman_badr\CurrencyRate\Core\Contracts\HttpAdapterInterface;
-use Abdelrahman_badr\CurrencyRate\Exceptions\{ConnectionException, ClientException};
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\HttpAdapterInterface;
+use Abdelrahman_badr\CurrencyRates\Exceptions\{ConnectionException, ClientException};
 use Exception;
 use GuzzleHttp\Exception\ ClientException as GuzzleClientException;
 use GuzzleHttp\Exception\RequestException as GuzzleRequestException;
@@ -14,7 +14,7 @@ use GuzzleHttp\Exception\RequestException as GuzzleRequestException;
 
 /**
  * Class GuzzleHttpAdapter
- * @package Abdelrahman_badr\CurrencyRate\Services\Http
+ * @package Abdelrahman_badr\CurrencyRates\Services\Http
  */
 class GuzzleHttpAdapter implements HttpAdapterInterface
 {

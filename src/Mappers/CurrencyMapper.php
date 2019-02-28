@@ -1,15 +1,15 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Mappers;
+namespace Abdelrahman_badr\CurrencyRates\Mappers;
 
-use Abdelrahman_badr\CurrencyRate\Models\Currency;
-use Abdelrahman_badr\CurrencyRate\Core\Contracts\CurrencyMapperInterface;
-use Abdelrahman_badr\CurrencyRate\Exceptions\ResponseException;
+use Abdelrahman_badr\CurrencyRates\Models\Currency;
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\CurrencyMapperInterface;
+use Abdelrahman_badr\CurrencyRates\Exceptions\ResponseException;
 use Exception, DateTime, stdClass;
 
 /**
  * Class CurrencyMapper
- * @package Abdelrahman_badr\CurrencyRate\Mappers
+ * @package Abdelrahman_badr\CurrencyRates\Mappers
  */
 class CurrencyMapper implements CurrencyMapperInterface
 {

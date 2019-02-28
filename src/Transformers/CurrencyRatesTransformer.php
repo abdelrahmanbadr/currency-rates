@@ -1,8 +1,8 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Transformers;
+namespace Abdelrahman_badr\CurrencyRates\Transformers;
 
-class CurrencyRatesTransformer
+class CurrencyRatessTransformer
 {
 
 

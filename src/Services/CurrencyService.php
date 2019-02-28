@@ -1,24 +1,24 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRate\Services;
+namespace Abdelrahman_badr\CurrencyRates\Services;
 
-use Abdelrahman_badr\CurrencyRate\Core\Constants\Constant;
-use Abdelrahman_badr\CurrencyRate\Core\Contracts\{CurrencyMapperInterface,
+use Abdelrahman_badr\CurrencyRates\Core\Constants\Constant;
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\{CurrencyMapperInterface,
     HttpAdapterInterface,
     CurrencyServiceInterface,
     ExcelSheetAdapterInterface,
     WriterInterFace,
     CurrencyProviderInterface};
-use Abdelrahman_badr\CurrencyRate\Services\Http\GuzzleHttpAdapter;
+use Abdelrahman_badr\CurrencyRates\Services\Http\GuzzleHttpAdapter;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use Abdelrahman_badr\CurrencyRate\Models\Currency;
+use Abdelrahman_badr\CurrencyRates\Models\Currency;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use stdClass, DateTime;
 
 
 /**
  * Class CurrencyService
- * @package Abdelrahman_badr\CurrencyRate\Services
+ * @package Abdelrahman_badr\CurrencyRates\Services
  */
 class CurrencyService implements CurrencyServiceInterface
 {
@@ -67,8 +67,8 @@ class CurrencyService implements CurrencyServiceInterface
     /**
      * @param string $endPoint
      * @return stdClass
-     * @throws \CurrencyRate\Exceptions\ClientException
-     * @throws \CurrencyRate\Exceptions\ConnectionException
+     * @throws \CurrencyRates\Exceptions\ClientException
+     * @throws \CurrencyRates\Exceptions\ConnectionException
      */
     private function getProviderResponse(string $endPoint): stdClass
     {
