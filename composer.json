@@ -1,0 +1,46 @@
+{
+  "name": "abdelrahmanbadr/currency-rates",
+  "description": "Library for interacting with exchangeratesapi currency exchange rates APIs",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "keywords": [
+    "currency",
+    "exchange",
+    "rates",
+    "api",
+    "laravel"
+  ],
+  "authors": [
+    {
+      "name": "Abdelrahman Badr El Deen",
+      "email": "abdelrahmanbadr.it@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3",
+    "guzzlehttp/guzzle": "~6.0",
+    "phpoffice/phpspreadsheet": "^1.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0",
+    "mockery/mockery": "^1.2",
+    "illuminate/support": "^5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Abdelrahman_badr\\currencyRate\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Abdelrahman_badr\\currencyRate\\Core\\CurrencyServiceProvider"
+      ]
+    }
+  }
+}
