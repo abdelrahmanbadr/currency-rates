@@ -22,7 +22,7 @@ By default, the base currency is `EUR`, so if that's your base, there's no need 
 
 A simplified example without the base and currency:
 ```php
-$rates = (new Exchange())->key("YOUR_ACCESS_KEY")->get();
+$currency = CurrencyService::getLatest();
 ```
 
 The `historical` option will return currency rates for every day since the dates you've specified. The base currency and symbols can be omitted here to, but let's see a full example:
