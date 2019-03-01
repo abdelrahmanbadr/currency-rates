@@ -50,8 +50,8 @@ class CurrencyService
     /**
      * @param string $endPoint
      * @return stdClass
-     * @throws \CurrencyRates\Exceptions\ClientException
-     * @throws \CurrencyRates\Exceptions\ConnectionException
+     * @throws \Abdelrahman_badr\CurrencyRates\Exceptions\ClientException
+     * @throws \Abdelrahman_badr\CurrencyRates\Exceptions\ConnectionException
      */
     private function getProviderResponse(string $endPoint): stdClass
     {
