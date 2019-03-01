@@ -9,7 +9,7 @@ namespace Abdelrahman_badr\CurrencyRates\Core\Constants;
 class Constant
 {
     public const BASE_CURRENCY = 'EUR';
-    public const EXCEL_SHEET_TITLE = "Currency Exchange Rates";
+    public const EXCEL_SHEET_TITLE = "Currency Exchange Rates Of ";
     //https://api.exchangeratesapi.io/latest?symbols=USD,GBP&base=AUD
     //https://api.exchangeratesapi.io/latest?base=USD
     //https://api.exchangeratesapi.io/latest?symbols=USD,GBP

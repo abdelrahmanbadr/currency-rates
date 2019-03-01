@@ -1,6 +1,7 @@
 <?php
 
 namespace Abdelrahman_badr\CurrencyRates\Providers;
+
 use DateTime;
 
 
@@ -17,7 +18,6 @@ class ExchangeRatesApiProvider extends AbstractProvider
      */
     public function __construct()
     {
-        //env('CURRENCY_EXCHANGE_API_URL', 'https://api.exchangeratesapi.io/latest');
         $this->baseUri = env("EXCHANGE_RATES_API_URL", 'https://api.exchangeratesapi.io/');
     }
 
@@ -26,11 +26,9 @@ class ExchangeRatesApiProvider extends AbstractProvider
      */
     public function getLatestUrl(string $base, array $symbols = []): string
     {
-        $this->getBase($base);
-        $this->getSymbols($symbols);
         $query = [];
-        $query['base'] = $this->getBase($base);
-        $symbols ? $query['symbols'] = $this->getSymbols($symbols) : null;
+        $query['base'] = $this->sanitizeBase($base);
+        $symbols ? $query['symbols'] = $this->sanitizeSymbols($symbols) : null;
         return $this->buildUrl("latest", $query);
     }
 
@@ -39,24 +37,22 @@ class ExchangeRatesApiProvider extends AbstractProvider
      */
     public function getHistoricalUrl(string $base, DateTime $startAt, DateTime $endAt = null, array $symbols = [])
     {
-        $this->getBase($base);
-
         $query = [];
-        $query['base'] = $this->getBase($base);
+        $query['base'] = $this->sanitizeBase($base);
         $query['start_at'] = $startAt->format('Y-m-d');
         $endAt ? ($query['end_at'] = $endAt->format('Y-m-d')) : ($query['end_at'] = $query['start_at']);
-        $symbols ? $query['symbols'] = $this->getSymbols($symbols) : null;
+        $symbols ? $query['symbols'] = $this->sanitizeSymbols($symbols) : null;
 
         return $this->buildUrl("history", $query);
     }
 
-    private function getBase(string $base): string
+    private function sanitizeBase(string $base): string
     {
         return strtoupper($base);
 
     }
 
-    private function getSymbols(array $symbols): string
+    private function sanitizeSymbols(array $symbols): string
     {
         $upperSymbols = [];
         foreach ($symbols as $symbol) {

@@ -2,6 +2,7 @@
 
 namespace Abdelrahman_badr\CurrencyRates\Core;
 
+use Abdelrahman_badr\currencyRate\Services\ExcelService;
 use Illuminate\Support\ServiceProvider;
 
 use Abdelrahman_badr\CurrencyRates\Services\CurrencyService;
@@ -29,7 +30,7 @@ class CurrencyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->instance('CurrencyService', new CurrencyService(new ExchangeRatesApiProvider(), new CurrencyMapper(), new GuzzleHttpAdapter()));
+        $this->app->instance('CurrencyService', new CurrencyService(new ExchangeRatesApiProvider(), new CurrencyMapper(), new GuzzleHttpAdapter(), new ExcelService()));
     }
 
 }
