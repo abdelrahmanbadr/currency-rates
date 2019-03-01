@@ -1,6 +1,6 @@
 <?php
 
-namespace Abdelrahman_badr\CurrencyRates\Services\Facades;
+namespace Abdelrahman_badr\CurrencyRates\Core\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
