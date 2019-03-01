@@ -2,6 +2,7 @@
 
 namespace Abdelrahman_badr\CurrencyRates\Providers;
 
+use Abdelrahman_badr\CurrencyRates\Core\Constants\Constant;
 use DateTime;
 
 
@@ -39,26 +40,11 @@ class ExchangeRatesApiProvider extends AbstractProvider
     {
         $query = [];
         $query['base'] = $this->sanitizeBase($base);
-        $query['start_at'] = $startAt->format('Y-m-d');
-        $endAt ? ($query['end_at'] = $endAt->format('Y-m-d')) : ($query['end_at'] = $query['start_at']);
+        $query['start_at'] = $startAt->format(Constant::DATE_FORMAT);
+        $endAt ? ($query['end_at'] = $endAt->format(Constant::DATE_FORMAT)) : ($query['end_at'] = $query['start_at']);
         $symbols ? $query['symbols'] = $this->sanitizeSymbols($symbols) : null;
 
         return $this->buildUrl("history", $query);
-    }
-
-    private function sanitizeBase(string $base): string
-    {
-        return strtoupper($base);
-
-    }
-
-    private function sanitizeSymbols(array $symbols): string
-    {
-        $upperSymbols = [];
-        foreach ($symbols as $symbol) {
-            $upperSymbols[] = strtoupper($symbol);
-        }
-        return implode($upperSymbols, ",");
     }
 
 

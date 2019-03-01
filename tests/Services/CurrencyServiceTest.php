@@ -3,11 +3,11 @@
 
 namespace Tests\CurrencyRate\Services;
 
-use CurrencyRate\Mappers\CurrencyMapper;
-use CurrencyRate\Providers\ExchangeRatesApiProvider;
-use CurrencyRate\Services\CurrencyService;
-use CurrencyRate\Core\Contracts\HttpAdapterInterface;
-use Tests\TestCase;
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\HttpAdapterInterface;
+use Abdelrahman_badr\CurrencyRates\Providers\ExchangeRatesApiProvider;
+use Abdelrahman_badr\CurrencyRates\Services\CurrencyService;
+use PHPUnit\Framework\TestCase;
+use Abdelrahman_badr\CurrencyRates\Mappers\CurrencyMapper;
 use Mockery, DateTime;
 
 class CurrencyServiceTest extends TestCase
@@ -29,6 +29,7 @@ class CurrencyServiceTest extends TestCase
         $this->mapper = new CurrencyMapper();
 
     }
+
 
     public function testGetLatest()
     {

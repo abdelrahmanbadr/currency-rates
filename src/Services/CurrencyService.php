@@ -2,12 +2,11 @@
 
 namespace Abdelrahman_badr\CurrencyRates\Services;
 
-use Abdelrahman_badr\currencyRate\Services\ExcelService;
 use Abdelrahman_badr\CurrencyRates\Core\Constants\Constant;
 use Abdelrahman_badr\CurrencyRates\Core\Contracts\{CurrencyMapperInterface,
     HttpAdapterInterface,
-    CurrencyServiceInterface,
     CurrencyProviderInterface};
+use Abdelrahman_badr\CurrencyRates\Services\Factory\ExcelServiceFactory;
 use Abdelrahman_badr\CurrencyRates\Services\Http\GuzzleHttpAdapter;
 use Abdelrahman_badr\CurrencyRates\Models\Currency;
 use stdClass, DateTime, Cache;
@@ -16,7 +15,7 @@ use stdClass, DateTime, Cache;
  * Class CurrencyService
  * @package Abdelrahman_badr\CurrencyRates\Services
  */
-class CurrencyService implements CurrencyServiceInterface
+class CurrencyService
 {
 
     /**
@@ -33,25 +32,19 @@ class CurrencyService implements CurrencyServiceInterface
      * @var GuzzleHttpAdapter
      */
     private $apiRequest;
-    /**
-     * @var ExcelService
-     */
-    private $excelService;
 
 
     /**
      * @param CurrencyProviderInterface $provider
      * @param CurrencyMapperInterface $mapper
      * @param HttpAdapterInterface $request
-     * @param ExcelService $excelService
      * @return void
      */
-    public function __construct(CurrencyProviderInterface $provider, CurrencyMapperInterface $mapper, HttpAdapterInterface $request, ExcelService $excelService)
+    public function __construct(CurrencyProviderInterface $provider, CurrencyMapperInterface $mapper, HttpAdapterInterface $request)
     {
         $this->mapper = $mapper;
         $this->provider = $provider;
         $this->apiRequest = $request;
-        $this->excelService = $excelService;
     }
 
     /**
@@ -89,20 +82,22 @@ class CurrencyService implements CurrencyServiceInterface
     public function exportHistorical(string $fileName, DateTime $startAt, DateTime $endAt = null, string $base = Constant::BASE_CURRENCY, array $symbols = [])
     {
         $currency = $this->getHistorical($startAt, $endAt, $base, $symbols);
-        $sheet = $this->excelService->getActiveSheet();
+        $excelService = (new ExcelServiceFactory())->make();
+        $sheet = $excelService->getActiveSheet();
         $sheet->setTitle(Constant::EXCEL_SHEET_TITLE . $base);
         $this->fillSheetByHistoricalRates($sheet, $currency->rates);
-        $this->excelService->saveExcelSheet($fileName);
+        $excelService->saveExcelSheet($fileName);
     }
 
 
     public function exportLatest(string $fileName, string $base = Constant::BASE_CURRENCY, array $symbols = [])
     {
         $currency = $this->getLatest($base, $symbols);
-        $sheet = $this->excelService->getActiveSheet();
+        $excelService = (new ExcelServiceFactory())->make();
+        $sheet = $excelService->getActiveSheet();
         $sheet->setTitle(Constant::EXCEL_SHEET_TITLE . $base);
         $this->fillSheetByLatestRates($sheet, $currency->rates);
-        $this->excelService->saveExcelSheet($fileName);
+        $excelService->saveExcelSheet($fileName);
     }
 
     private function getCurrencyRatesIfCacheEnabled(string $endPoint)
@@ -133,13 +128,12 @@ class CurrencyService implements CurrencyServiceInterface
                 $counter++;
             }
         }
-
     }
 
     private function fillSheetByLatestRates(&$sheet, $rates)
     {
-        $counter = 1;
-
+        $sheet->setCellValue('A1', (new DateTime())->format(Constant::DATE_FORMAT));
+        $counter = 2;
         foreach ($rates as $currency => $rate) {
             $sheet->setCellValue('A' . $counter, $currency);
             $sheet->setCellValue('B' . $counter, $rate);

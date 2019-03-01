@@ -4,13 +4,15 @@ namespace Abdelrahman_badr\CurrencyRates\Core;
 
 use Abdelrahman_badr\currencyRate\Services\ExcelService;
 use Illuminate\Support\ServiceProvider;
-
 use Abdelrahman_badr\CurrencyRates\Services\CurrencyService;
 use Abdelrahman_badr\CurrencyRates\Providers\ExchangeRatesApiProvider;
 use Abdelrahman_badr\CurrencyRates\Mappers\CurrencyMapper;
 use Abdelrahman_badr\CurrencyRates\Services\Http\GuzzleHttpAdapter;
 
-
+/**
+ * Class CurrencyServiceProvider
+ * @package Abdelrahman_badr\CurrencyRates\Core
+ */
 class CurrencyServiceProvider extends ServiceProvider
 {
     /**

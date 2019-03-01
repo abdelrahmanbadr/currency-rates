@@ -8,7 +8,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class WriterXlsxFactory
 {
-    public function make(Spreadsheet $spreadsheet): Xlsx
+    public function make(Spreadsheet $spreadsheet)
     {
         return new Xlsx($spreadsheet);
     }

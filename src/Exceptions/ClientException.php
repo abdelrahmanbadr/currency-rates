@@ -16,8 +16,6 @@ class ClientException extends Exception
      */
     public static function badRequest(Exception $e)
     {
-        dd($e->getMessage());
-        //@todo parse error message
         return new self(sprintf("Bad Request"));
     }
 

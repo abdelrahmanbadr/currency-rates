@@ -2,9 +2,8 @@
 
 namespace Tests\CurrencyRate\Providers;
 
-
-use Tests\TestCase;
-use CurrencyRate\Providers\ExchangeRatesApiProvider;
+use Abdelrahman_badr\CurrencyRates\Providers\ExchangeRatesApiProvider;
+use PHPUnit\Framework\TestCase;
 use DateTime;
 
 class ExchangeRatesApiProviderTest extends TestCase
@@ -17,6 +16,7 @@ class ExchangeRatesApiProviderTest extends TestCase
 
     public function setup()
     {
+
         $this->baseUrl = env("EXCHANGE_RATES_API_URL", 'https://api.exchangeratesapi.io/');
         $this->provider = new ExchangeRatesApiProvider();
     }

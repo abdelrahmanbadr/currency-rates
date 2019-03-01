@@ -26,8 +26,31 @@ abstract class AbstractProvider implements CurrencyProviderInterface
         if ($query) {
             $url .= '?' . http_build_query($query);
         }
-
         return urldecode($url);
+    }
+
+    /**
+     * @param string $base
+     * @return string
+     */
+    protected function sanitizeBase(string $base): string
+    {
+        //@todo move this to sanitize serve
+        return strtoupper($base);
+
+    }
+
+    /**
+     * @param array $symbols
+     * @return string
+     */
+    protected function sanitizeSymbols(array $symbols): string
+    {
+        $upperSymbols = [];
+        foreach ($symbols as $symbol) {
+            $upperSymbols[] = strtoupper($symbol);
+        }
+        return implode($upperSymbols, ",");
     }
 
 

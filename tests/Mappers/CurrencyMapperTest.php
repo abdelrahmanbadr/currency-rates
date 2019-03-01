@@ -2,8 +2,8 @@
 
 namespace Tests\Mappers\CurrencyRate;
 
-use Tests\TestCase;
-use CurrencyRate\Mappers\CurrencyMapper;
+use PHPUnit\Framework\TestCase;
+use Abdelrahman_badr\CurrencyRates\Mappers\CurrencyMapper;
 
 use stdClass,DateTime;
 
@@ -12,6 +12,7 @@ class CurrencyMapperTest extends TestCase
 
     public function dataProvider()
     {
+
         return [
             [
                 "currency" => (object)[
@@ -28,13 +29,11 @@ class CurrencyMapperTest extends TestCase
         ];
     }
 
-
     /**
-     *  A basic test currency map function.
+     * A basic test currency map function.
      * @param stdClass $currency
-     * @throws \CurrencyRate\Exceptions\ResponseException
+     * @throws \Abdelrahman_badr\CurrencyRates\Exceptions\ResponseException
      * @dataProvider dataProvider
-     * @return void
      */
     public function testCurrencyMap(stdClass $currency)
     {
@@ -47,5 +46,6 @@ class CurrencyMapperTest extends TestCase
 
 
     }
+
 
 }
