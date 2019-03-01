@@ -48,3 +48,4 @@ CurrencyService::exportHistorical('fliename',new \DateTime(),new \DateTime("2019
     2- more validation for package user inputs
     3- create convert service for specific two currencies
     4- add more providers such as Fixerio and make config switch between them
+    5- add logs to trace errors
