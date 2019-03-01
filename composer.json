@@ -42,7 +42,7 @@
         "Abdelrahman_badr\\CurrencyRates\\Core\\CurrencyServiceProvider"
       ],
       "aliases": {
-        "CurrencyService": "Abdelrahman_badr\\CurrencyRates\\Facades\\CurrencyService"
+        "CurrencyService": "Abdelrahman_badr\\CurrencyRates\\Services\\Facades\\CurrencyService"
       }
     }
   }
