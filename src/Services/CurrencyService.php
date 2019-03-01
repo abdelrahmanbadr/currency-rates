@@ -58,7 +58,7 @@ class CurrencyService
         return json_decode($this->apiRequest->getContent($endPoint));
     }
 
-    //@todo use transformer
+    //@todo  transform result
     public function getLatest(string $base = Constant::BASE_CURRENCY, array $symbols = []): Currency
     {
         $endPoint = $this->provider->getLatestUrl($base, $symbols);

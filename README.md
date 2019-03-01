@@ -46,6 +46,7 @@ CurrencyService::exportHistorical('fliename',new \DateTime(),new \DateTime("2019
  ## Nice To Have:
     1. Add Cli Command To Get Currency Exchange Rates
     2- more validation for package user inputs
-    3- create convert service for specific two currencies
+    3- create convert service like convert 100 USD to EUR 
     4- add more providers such as Fixerio and make config switch between them
     5- add logs to trace errors
+    6- use transform layer for the result 
