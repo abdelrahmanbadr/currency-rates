@@ -43,7 +43,7 @@ CurrencyService::exportHistorical('fliename',new \DateTime(),new \DateTime("2019
 ```
 ## Running Unit tests:
     $ ./vendor/bin/phpunit
- ## Nice To Have:
+ ## Nice To Have (@Todo):
     1. Add Cli Command To Get Currency Exchange Rates
     2- more validation for package user inputs
     3- create convert service like convert 100 USD to EUR 
