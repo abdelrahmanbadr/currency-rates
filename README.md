@@ -1,8 +1,8 @@
 # currency-rates
 ## Installation:
 Currency Rates Package supports Laravel 5.5 and higher.
-##Package
-Require via composer
+
+## Package Require via composer:
 * composer require abdelrahmanbadr/currency-rates
 * In your .env file set exchangeratesapi url in EXCHANGE_RATES_API_URL
 * In your .env file set cache enabled or disabled (true or false)  CURRENCY_RATES_CACHE_IS_ENABLED
