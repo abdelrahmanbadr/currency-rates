@@ -3,7 +3,6 @@
 namespace Abdelrahman_badr\CurrencyRates\Exceptions;
 
 use Abdelrahman_badr\CurrencyRates\Core\Constants\ErrorMessage;
-use Exception;
 
 /**
  * Class ConnectionException
@@ -18,6 +17,4 @@ class ConnectionException extends Exception
     {
         return new self(sprintf(ErrorMessage::API_CONNECTION_ERROR_MESSAGE));
     }
-
-
 }

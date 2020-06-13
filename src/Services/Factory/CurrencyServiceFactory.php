@@ -12,6 +12,5 @@ class CurrencyServiceFactory
     public function make()
     {
         return new CurrencyService(new ExchangeRatesApiProvider(), new CurrencyMapper(), new GuzzleHttpAdapter());
-
     }
 }

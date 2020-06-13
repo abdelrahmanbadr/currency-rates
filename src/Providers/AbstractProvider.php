@@ -37,7 +37,6 @@ abstract class AbstractProvider implements CurrencyProviderInterface
     {
         //@todo move this to sanitize serve
         return strtoupper($base);
-
     }
 
     /**
@@ -52,6 +51,4 @@ abstract class AbstractProvider implements CurrencyProviderInterface
         }
         return implode($upperSymbols, ",");
     }
-
-
 }

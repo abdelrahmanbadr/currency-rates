@@ -28,6 +28,4 @@ interface CurrencyProviderInterface
      * @return string
      */
     public function getHistoricalUrl(string $base, DateTime $startAt, DateTime $endAt, array $symbols);
-
-
 }

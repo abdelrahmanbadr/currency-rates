@@ -21,7 +21,6 @@ class CurrencyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
     }
 
     /**
@@ -31,7 +30,9 @@ class CurrencyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->instance('CurrencyService', new CurrencyService(new ExchangeRatesApiProvider(), new CurrencyMapper(), new GuzzleHttpAdapter()));
+        $this->app->instance(
+            'CurrencyService',
+            new CurrencyService(new ExchangeRatesApiProvider(), new CurrencyMapper(), new GuzzleHttpAdapter())
+        );
     }
-
 }

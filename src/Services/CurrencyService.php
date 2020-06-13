@@ -3,13 +3,15 @@
 namespace Abdelrahman_badr\CurrencyRates\Services;
 
 use Abdelrahman_badr\CurrencyRates\Core\Constants\Constant;
-use Abdelrahman_badr\CurrencyRates\Core\Contracts\{CurrencyMapperInterface,
-    HttpAdapterInterface,
-    CurrencyProviderInterface};
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\CurrencyMapperInterface;
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\HttpAdapterInterface;
+use Abdelrahman_badr\CurrencyRates\Core\Contracts\CurrencyProviderInterface;
 use Abdelrahman_badr\CurrencyRates\Services\Factory\ExcelServiceFactory;
 use Abdelrahman_badr\CurrencyRates\Services\Http\GuzzleHttpAdapter;
 use Abdelrahman_badr\CurrencyRates\Models\Currency;
-use stdClass, DateTime, Cache;
+use stdClass;
+use DateTime;
+use Cache;
 
 /**
  * Class CurrencyService
@@ -17,7 +19,6 @@ use stdClass, DateTime, Cache;
  */
 class CurrencyService
 {
-
     /**
      * @var CurrencyMapperInterface
      */
@@ -33,15 +34,17 @@ class CurrencyService
      */
     private $apiRequest;
 
-
     /**
      * @param CurrencyProviderInterface $provider
      * @param CurrencyMapperInterface $mapper
      * @param HttpAdapterInterface $request
      * @return void
      */
-    public function __construct(CurrencyProviderInterface $provider, CurrencyMapperInterface $mapper, HttpAdapterInterface $request)
-    {
+    public function __construct(
+        CurrencyProviderInterface $provider,
+        CurrencyMapperInterface $mapper,
+        HttpAdapterInterface $request
+    ) {
         $this->mapper = $mapper;
         $this->provider = $provider;
         $this->apiRequest = $request;
@@ -69,8 +72,12 @@ class CurrencyService
         return $this->mapper->map($result);
     }
 
-    public function getHistorical(DateTime $startAt, DateTime $endAt = null, string $base = Constant::BASE_CURRENCY, array $symbols = []): Currency
-    {
+    public function getHistorical(
+        DateTime $startAt,
+        DateTime $endAt = null,
+        string $base = Constant::BASE_CURRENCY,
+        array $symbols = []
+    ): Currency {
         $endPoint = $this->provider->getHistoricalUrl($base, $startAt, $endAt, $symbols);
         $result = $this->getCurrencyRatesIfCacheEnabled($endPoint);
         if (empty($result)) {
@@ -79,8 +86,13 @@ class CurrencyService
         return $this->mapper->map($result);
     }
 
-    public function exportHistorical(string $fileName, DateTime $startAt, DateTime $endAt = null, string $base = Constant::BASE_CURRENCY, array $symbols = [])
-    {
+    public function exportHistorical(
+        string $fileName,
+        DateTime $startAt,
+        DateTime $endAt = null,
+        string $base = Constant::BASE_CURRENCY,
+        array $symbols = []
+    ) {
         $currency = $this->getHistorical($startAt, $endAt, $base, $symbols);
         $excelService = (new ExcelServiceFactory())->make();
         $sheet = $excelService->getActiveSheet();
@@ -88,7 +100,6 @@ class CurrencyService
         $this->fillSheetByHistoricalRates($sheet, $currency->rates);
         $excelService->saveExcelSheet($fileName);
     }
-
 
     public function exportLatest(string $fileName, string $base = Constant::BASE_CURRENCY, array $symbols = [])
     {
@@ -106,11 +117,10 @@ class CurrencyService
         if (env('CURRENCY_RATES_CACHE_IS_ENABLED')) {
             $md5 = md5($endPoint);
             if (Cache::Has($md5)) {
-                $result = Cache::get($md5);
-            } else {
-                $result = $this->getProviderResponse($endPoint);
-                Cache::put($md5, $result, env("CURRENCY_RATES_CACHE_EXPIRY"));
+                return Cache::get($md5);
             }
+            $result = $this->getProviderResponse($endPoint);
+            Cache::put($md5, $result, env("CURRENCY_RATES_CACHE_EXPIRY"));
         }
         return $result;
     }
@@ -119,7 +129,6 @@ class CurrencyService
     {
         $counter = 1;
         foreach ($rates as $date => $exchangeRates) {
-
             $sheet->setCellValue('A' . $counter, $date);
             $counter++;
             foreach ($exchangeRates as $currency => $rate) {
@@ -140,5 +149,4 @@ class CurrencyService
             $counter++;
         }
     }
-
 }

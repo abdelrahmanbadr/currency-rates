@@ -1,10 +1,8 @@
 <?php
 
-
 namespace Abdelrahman_badr\CurrencyRates\Exceptions;
 
 use Abdelrahman_badr\CurrencyRates\Core\Constants\ErrorMessage;
-use Exception;
 
 /**
  * Class ResponseException
@@ -19,5 +17,4 @@ class ResponseException extends Exception
     {
         return new self(sprintf(ErrorMessage::API_RESPONSE_NOT_VALID));
     }
-
 }

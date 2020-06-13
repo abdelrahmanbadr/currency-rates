@@ -5,7 +5,6 @@ namespace Abdelrahman_badr\CurrencyRates\Providers;
 use Abdelrahman_badr\CurrencyRates\Core\Constants\Constant;
 use DateTime;
 
-
 /**
  * Class ExchangeRatesApiProvider
  * @package Abdelrahman_badr\CurrencyRates\Providers
@@ -46,6 +45,4 @@ class ExchangeRatesApiProvider extends AbstractProvider
 
         return $this->buildUrl("history", $query);
     }
-
-
 }

@@ -10,5 +10,5 @@ class Constant
 {
     public const BASE_CURRENCY = 'EUR';
     public const DATE_FORMAT = 'Y-m-d';
-    public const EXCEL_SHEET_TITLE = "Currency Exchange Rates Of ";
+    public const EXCEL_SHEET_TITLE = 'Currency Exchange Rates Of ';
 }

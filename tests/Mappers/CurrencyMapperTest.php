@@ -4,15 +4,14 @@ namespace Tests\Mappers\CurrencyRate;
 
 use PHPUnit\Framework\TestCase;
 use Abdelrahman_badr\CurrencyRates\Mappers\CurrencyMapper;
-
-use stdClass,DateTime;
+use stdClass;
+use DateTime;
 
 class CurrencyMapperTest extends TestCase
 {
 
     public function dataProvider()
     {
-
         return [
             [
                 "currency" => (object)[
@@ -23,8 +22,6 @@ class CurrencyMapperTest extends TestCase
                     "base" => "EUR",
                     "date" => "2019-02-26"
                 ]
-
-
             ]
         ];
     }
@@ -37,15 +34,9 @@ class CurrencyMapperTest extends TestCase
      */
     public function testCurrencyMap(stdClass $currency)
     {
-
         $mappedCurrency = (new CurrencyMapper())->map($currency);
         $this->assertEquals($currency->base, $mappedCurrency->base);
         $this->assertEquals($currency->rates, $mappedCurrency->rates);
         $this->assertEquals(new DateTime($currency->date), $mappedCurrency->date);
-
-
-
     }
-
-
 }

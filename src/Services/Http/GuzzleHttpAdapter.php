@@ -2,15 +2,14 @@
 
 namespace Abdelrahman_badr\CurrencyRates\Services\Http;
 
-use Abdelrahman_badr\CurrencyRates\Exceptions\ResponseException;
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Abdelrahman_badr\CurrencyRates\Core\Contracts\HttpAdapterInterface;
-use Abdelrahman_badr\CurrencyRates\Exceptions\{ConnectionException, ClientException};
-use Exception;
+use Abdelrahman_badr\CurrencyRates\Exceptions\ConnectionException;
+use Abdelrahman_badr\CurrencyRates\Exceptions\ClientException;
 use GuzzleHttp\Exception\ ClientException as GuzzleClientException;
 use GuzzleHttp\Exception\RequestException as GuzzleRequestException;
-
 
 /**
  * Class GuzzleHttpAdapter
@@ -29,16 +28,11 @@ class GuzzleHttpAdapter implements HttpAdapterInterface
      */
     public function __construct(ClientInterface $client = null)
     {
-        if (isset($client)) {
-            $this->client = $client;
-        } else {
-            $this->client = new Client();
-        }
+        $this->client = $client??new Client();
     }
 
     public function getContent(string $url, array $headers = []): string
     {
-
         try {
             $response = $this->client->request("GET", $url, $headers);
             return $response->getBody();
@@ -50,6 +44,4 @@ class GuzzleHttpAdapter implements HttpAdapterInterface
             throw $e;
         }
     }
-
-
 }

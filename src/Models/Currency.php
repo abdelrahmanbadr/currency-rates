@@ -2,7 +2,8 @@
 
 namespace Abdelrahman_badr\CurrencyRates\Models;
 
-use DateTime, stdClass;
+use DateTime;
+use stdClass;
 
 /**
  * Class Currency
@@ -30,5 +31,4 @@ class Currency
      * @var DateTime
      */
     public $endAt;
-
 }

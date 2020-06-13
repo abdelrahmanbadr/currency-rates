@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Abdelrahman_badr\currencyRate\Services;
 
 use Abdelrahman_badr\CurrencyRate\Services\Factory\WriterXlsxFactory;
@@ -25,5 +24,4 @@ class ExcelService
         $writer = (new WriterXlsxFactory())->make($this->spreadsheet);
         $writer->save($fileName . ".xlsx");
     }
-
 }

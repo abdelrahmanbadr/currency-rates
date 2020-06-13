@@ -16,7 +16,6 @@ class ExchangeRatesApiProviderTest extends TestCase
 
     public function setup()
     {
-
         $this->baseUrl = env("EXCHANGE_RATES_API_URL", 'https://api.exchangeratesapi.io/');
         $this->provider = new ExchangeRatesApiProvider();
     }
@@ -24,17 +23,14 @@ class ExchangeRatesApiProviderTest extends TestCase
 
     public function testLatest()
     {
-
         $base = "USD";
         $url = $this->provider->getLatestUrl($base);
         $expected = $this->baseUrl . "latest?base=" . $base;
         $this->assertEquals($url, $expected);
-
     }
 
     public function testHistorical()
     {
-
         $base = "EUR";
         $start = "2010-01-01";
         $end = "2011-01-01";
@@ -43,11 +39,9 @@ class ExchangeRatesApiProviderTest extends TestCase
 
         $symbols = ["USD", "AUD"];
         $url = $this->provider->getHistoricalUrl($base, $startDate, $endDate, $symbols);
-        $expected = $this->baseUrl . "history?base=" . $base . "&start_at=" . $start . "&end_at=" . $end . "&symbols=" . implode($symbols, ",");
+        $expected = $this->baseUrl . "history?base=" . $base . "&start_at=" .
+        $start . "&end_at=" . $end . "&symbols=" . implode($symbols, ",");
 
         $this->assertEquals($url, $expected);
-
     }
-
-
 }
